@@ -1,0 +1,120 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>Password Generator</title>
+  </head>
+
+  <body>
+    <div class="container mt-1">
+      <div class="jumbotron text-center">
+        <h4>Password Generator</h4>
+        <p class="lead">by Fabio Z Tessitore</p>
+        <p class="text-center">v. 0.1.0</p>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <div class="form-row">
+              <div class="col-3">
+                <div class="form-group"><p>Password Length:</p></div>
+              </div>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="4">4
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="6">6
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="8">8
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="10">10
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="12" checked>12
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="16">16
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="18">18
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="20">20
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="passwd-length">
+                    <input class="form-check-input" type="radio" name="passwd-length" value="22">22
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-row">
+              <div class="form-group col">
+                <label class="form-check-label" for="lowercase">
+                  <input class="form-check-input" type="checkbox" name="lowercase" id="lowercase" checked>Lowercase
+                </label>
+              </div>
+              <div class="form-group col">
+                <label class="form-check-label" for="uppercase">
+                  <input class="form-check-input" type="checkbox" name="uppercase" id="uppercase" checked>Uppercase
+                </label>
+              </div>
+              <div class="form-group col">
+                <label class="form-check-label" for="digits">
+                  <input class="form-check-input" type="checkbox" name="digits" id="digits" checked>Digits
+                </label>
+              </div>
+            </div>
+            <!--
+            <div class="form-row">
+              <div class="form-group col-4">
+                <label class="form-check-label" for="punctuations">
+                  <input class="form-check-input" type="checkbox" name="punctuations" id="punctuations" checked>Punctuations
+                </label>
+              </div>
+              <div class="form-group col">
+                Segni di punteggiatura
+              </div>
+            </div>
+            -->
+            <button id="generate" class="btn btn-primary btn-block">Generate Password</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card mt-3"><h4 id="passwd" class="card-title text-center text-secondary p-3">Esempio di Password</h4></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="/js/bundle.js"></script>
+  </body>
+
+</html>
