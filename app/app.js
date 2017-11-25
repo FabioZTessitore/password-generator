@@ -4,7 +4,9 @@ const random = require('./random');
 const chars = require('./chars');
 
 $(document).ready(function () {
-  $('#generate').on('click', function () {
+  $('#generate').on('click', function (event) {
+    event.preventDefault();
+
     let charset = [];
     let passwd = [];
 
