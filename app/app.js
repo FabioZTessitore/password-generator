@@ -4,7 +4,38 @@ const random = require('./random');
 const chars = require('./chars');
 
 $(document).ready(function () {
-  $('#generate').on('click', function (event) {
+
+  var symbols = $('#symbols');
+  var symbolsList = chars.punctuations;
+  symbolsList.map( function (symbol) {
+    var checkbox = $('<input>', { type: "checkbox", class: "form-check-input symbol", name: symbol, id: symbol, checked: true});
+    var label = $('<label>', {class: "form-check-label", for: symbol});
+    var div = $('<div>', {class: "form-check form-check-inline"});
+    label.append(checkbox);
+    label.append(symbol);
+    div.append(label);
+    symbols.append(div);
+  });
+
+  $('#punctuations').change( function () {
+    $('#symbolsContainer').toggleClass('d-none');
+  });
+
+  $('#select-all-punct').on('click', function () {
+    var symbols = $('#symbols').find('.symbol');
+    symbols.map( function (index, symbol) {
+      $(symbol).prop('checked', true);
+    });
+  });
+
+  $('#deselect-all-punct').on('click', function () {
+    var symbols = $('#symbols').find('.symbol');
+    symbols.map( function (index, symbol) {
+      $(symbol).prop('checked', false);
+    });
+  });
+
+  $('#generate').click( function (event) {
     event.preventDefault();
 
     let charset = [];
@@ -32,6 +63,21 @@ $(document).ready(function () {
       charset = charset.concat(chars.digits);
       // at least one digits
       passwd.push(chars.digits[random.randomBetween(0, chars.digits.length)]);
+    }
+
+    var punctuationsCheckBox = $('#punctuations');
+    var punctuationsFlag = punctuationsCheckBox.is(':checked');
+    if (punctuationsFlag) {
+      var symbols = [];
+      var symbolsCheckBox = $('#symbols').find('.symbol');
+      symbolsCheckBox.map( function (index, symbolCheckBox) {
+        if ($(symbolCheckBox).is(':checked')) {
+          symbols.push($(symbolCheckBox).prop('name'));
+        }
+      });
+      charset = charset.concat(symbols);
+      // at least one symbol
+      passwd.push(symbols[random.randomBetween(0, symbols.length)]);
     }
 
     const passwdRequestedLength = $('input[name=passwd-length]').filter(':checked').val();

@@ -16,7 +16,7 @@
       <div class="jumbotron text-center">
         <h4>Password Generator</h4>
         <small>Coded with &#x2615; and &#10084;<br>by Fabio Z Tessitore</small>
-        <br>v. 0.1.4
+        <br>v. 0.2.0
       </div>
 
       <div class="row">
@@ -92,18 +92,21 @@
                 </label>
               </div>
             </div>
-            <!--
             <div class="form-row">
-              <div class="form-group col-4">
+              <div class="form-group col">
                 <label class="form-check-label" for="punctuations">
                   <input class="form-check-input" type="checkbox" name="punctuations" id="punctuations" checked>Punctuations
                 </label>
               </div>
               <div class="form-group col">
-                Segni di punteggiatura
+                <div id="symbolsContainer">
+                <div id="symbols">
+                </div>
+                <button type="button" id="select-all-punct" class="btn btn-secondary">Select All</button>
+                <button type="button" id="deselect-all-punct" class="btn btn-secondary">Deselect All</button>
+              </div>
               </div>
             </div>
-            -->
             <button type="button" id="generate" class="btn btn-primary btn-block">Generate Password</button>
           </form>
         </div>
