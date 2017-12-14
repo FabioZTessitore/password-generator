@@ -37,13 +37,14 @@ $(document).ready(function () {
   });
 
   $('#generate').click( function (event) {
+    event.stopPropagation();
     event.preventDefault();
 
     let charset = [];
     let passwd = [];
 
     var lowercaseCheckBox = $('#lowercase');
-    var lowercaseFlag = lowercaseCheckBox.is(':checked');
+    var lowercaseFlag = lowercaseCheckBox.prop('checked');
     if (lowercaseFlag) {
       charset = charset.concat(chars.lowercase);
       // at least one lowercase
@@ -51,7 +52,7 @@ $(document).ready(function () {
     }
 
     var uppercaseCheckBox = $('#uppercase');
-    var uppercaseFlag = uppercaseCheckBox.is(':checked');
+    var uppercaseFlag = uppercaseCheckBox.prop('checked');
     if (uppercaseFlag) {
       charset = charset.concat(chars.uppercase);
       // at least one uppercase
@@ -59,7 +60,7 @@ $(document).ready(function () {
     }
 
     var digitsCheckBox = $('#digits');
-    var digitsFlag = digitsCheckBox.is(':checked');
+    var digitsFlag = digitsCheckBox.prop('checked');
     if (digitsFlag) {
       charset = charset.concat(chars.digits);
       // at least one digits
@@ -67,18 +68,20 @@ $(document).ready(function () {
     }
 
     var punctuationsCheckBox = $('#punctuations');
-    var punctuationsFlag = punctuationsCheckBox.is(':checked');
+    var punctuationsFlag = punctuationsCheckBox.prop('checked');
     if (punctuationsFlag) {
       var symbols = [];
       var symbolsCheckBox = $('#symbols').find('.symbol');
       symbolsCheckBox.map( function (index, symbolCheckBox) {
-        if ($(symbolCheckBox).is(':checked')) {
+        if ($(symbolCheckBox).prop('checked')) {
           symbols.push($(symbolCheckBox).prop('name'));
         }
       });
-      charset = charset.concat(symbols);
-      // at least one symbol
-      passwd.push(symbols[random.randomBetween(0, symbols.length)]);
+      // at least one symbol (if at least one selected)
+      if (symbols.length > 0) {
+        charset = charset.concat(symbols);
+        passwd.push(symbols[random.randomBetween(0, symbols.length)]);
+      }
     }
 
     const passwdRequestedLength = $('input[name=passwd-length]').filter(':checked').val();
@@ -87,6 +90,8 @@ $(document).ready(function () {
       passwd.push(charset[random.randomBetween(0, charset.length)]);
     }
 
+    passwd = _.shuffle(passwd);
+    passwd = _.shuffle(passwd);
     passwd = _.shuffle(passwd);
     $('#passwd').text(passwd.join(''));
 
